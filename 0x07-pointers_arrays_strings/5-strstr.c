@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- *_strstr() - locates a substring.
+ *_strstr - locates a substring.
  *@needle: searched in haystack
  *@haystack: main str to be examined
  *Return: pointer to the beginning of the located substring
@@ -11,7 +11,7 @@ char *_strstr(char *haystack, char *needle)
 int i;
 int s = 0;
 
-while (needle[s] !='\0')
+while (needle[s] != '\0')
 {
 s++;
 }
