@@ -16,7 +16,7 @@ unsigned int l = 0;
 if (src == NULL)
 return (NULL);
 
-while (src[i])	
+while (src[i])
 i++;
 
 ptr = malloc(sizeof(char) * (i + 1));
