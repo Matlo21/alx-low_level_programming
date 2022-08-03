@@ -1,16 +1,15 @@
 #include "3-calc.h"
 /**
  * main - main functiion
- * @argc: number of arguments
- * @argv: array of arguments
+ * @argc: arguments count
+ * @argv: arguments vector
  * Return: 0 if  succsefull
  */
 
 int main(int argc, char *argv[])
 {
-int a, b, c;
-int (*p)(int, int);
-char i;
+int a, b;
+int (*func)(int, int);
 
 if (argc != 4)
 {
@@ -18,27 +17,23 @@ if (argc != 4)
 	exit(98);
 }
 
+if (argv[2][1])
+{
+	printf("Error\n");
+	exit(99);
+}
+
+func = get_op_func(argv[2]);
+
+if (func == NULL)
+{
+	printf("Error\n");
+	exit(99);
+}
+
 a = atoi(argv[1]);
 b = atoi(argv[3]);
 
-p = get_op_func(argv[2]);
-
-if (!p)
-{
-printf("Error\n");
-exit(99);
-}
-
-i = *argv[2];
-
-if ((i == '/' || i == '%') && b == 0)
-{
-	printf("Error\n");
-	exit(100);
-}
-
-c = p(a, b);
-
-printf("%d\n", c);
+printf("%d\n", func(a, b));
 return (0);
 }
