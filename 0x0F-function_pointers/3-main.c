@@ -8,7 +8,6 @@
 
 int main(int argc, char *argv[])
 {
-int a, b;
 int (*func)(int, int);
 
 if (argc != 4)
@@ -17,23 +16,14 @@ if (argc != 4)
 	exit(98);
 }
 
-if (argv[2][1])
-{
-	printf("Error\n");
-	exit(99);
-}
-
 func = get_op_func(argv[2]);
 
-if (func == NULL)
+if (!func)
 {
 	printf("Error\n");
 	exit(99);
 }
 
-a = atoi(argv[1]);
-b = atoi(argv[3]);
-
-printf("%d\n", func(a, b));
+printf("%d\n", func(atoi(argv[1]), atoi(argv[3])));
 return (0);
 }
