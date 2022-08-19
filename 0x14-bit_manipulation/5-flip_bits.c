@@ -14,6 +14,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	if (!n || !m)
 		return (0);
+
 	while (xor)
 	{
 		if (xor & 1)
